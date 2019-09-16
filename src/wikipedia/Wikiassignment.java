@@ -50,19 +50,19 @@ public class Wikiassignment {
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		BufferedImage  fullImg = ImageIO.read(screenshot);
 
-		// Get the location of element on the page
+		
 		Point point = ele.getLocation();
 
-		// Get width and height of the element
+		
 		int eleWidth = ele.getSize().getWidth();
 		int eleHeight = ele.getSize().getHeight();
 
-		// Crop the entire page screenshot to get only element screenshot
+		
 		BufferedImage eleScreenshot= fullImg.getSubimage(point.getX(), point.getY(),
 		    eleWidth, eleHeight);
 		ImageIO.write(eleScreenshot, "png", screenshot);
 
-		// Copy the element screenshot to disk
+		
 		File screenshotLocation = new File("C:\\images\\image_screenshot.png");
 		FileUtils.copyFile(screenshot, screenshotLocation);
 		
